@@ -27,7 +27,7 @@ services:
     networks:
        - profile-network
     volumes:   
-          - ./data:/data/db  
+          - profiledata:/data:/data/db  
 
   mongo-express:
     container_name: express
@@ -43,3 +43,6 @@ services:
        - profile-network
     depends_on:
       - database
+
+volumes:
+  profiledata: {} 
