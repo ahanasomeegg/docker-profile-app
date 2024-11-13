@@ -24,12 +24,12 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=secret
     networks:
-       - profile-network
+      - profile-network
     volumes:   
-          - profiledata:/data:/data/db  
+      - ./profiledata:/data/db  
 
   mongo-express:
-    container_name: express
+    container_name: express1
     image: mongo-express:1.0-20-alpine3.19
     restart: always # fixes MongoNetworkError caused by mongodb not being ready when mongo-express starts.
     ports:
@@ -42,6 +42,3 @@ services:
        - profile-network
     depends_on:
       - database
-
-volumes:
-  profiledata: {} 
